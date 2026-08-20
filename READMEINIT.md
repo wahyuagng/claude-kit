@@ -12,6 +12,12 @@ Bootstrap kit untuk setup AI context di project React+TypeScript baru menggunaka
 npx degit wahyuagng/claude-kit/commands .claude/commands
 ```
 
+Atau jika ingin menyertakan `READMEINIT.md` sebagai referensi di project:
+
+```bash
+npx degit wahyuagng/claude-kit .claude/commands && npx degit wahyuagng/claude-kit/READMEINIT.md .claude/READMEINIT.md
+```
+
 Perintah ini akan meng-copy folder `commands/init/` ke `.claude/commands/` di project kamu — tanpa git history, tanpa file lain.
 
 ### 2. Jalankan init sequence
