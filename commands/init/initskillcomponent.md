@@ -2,7 +2,7 @@
 description: Scan base component source code (Table/Grid, Form, Field) dan generate/update skill files di .claude/skills/component/
 ---
 
-# Command: /init:initskillcomponent
+# Command: /init:skill-component
 
 Kamu akan membaca source code base component yang ada di project ini, mengekstrak API dan pola penggunaannya, lalu menulis ulang skill files di `.claude/skills/component/`.
 
@@ -175,6 +175,6 @@ description: {satu kalimat}
   .claude/skills/component/fields/SKILL.md
 
 Langkah selanjutnya:
-  • /git:prime — load konteks sebelum coding
-  • /init:initcommand — generate command operasional (add-menu, validate, dll)
+  • /git:start — load konteks sebelum coding
+  • /init:command — generate command operasional (add-menu, validate, dll)
 ```

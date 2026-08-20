@@ -2,7 +2,7 @@
 description: Scan route config dan paths.ts di project ini, lalu generate .claude/registry/menu-registry.md dengan daftar lengkap menu, path URL, lokasi page, dan service
 ---
 
-# Command: /init:initmenuregistry
+# Command: /init:menu-registry
 
 Kamu akan men-scan konfigurasi routing project ini, mengekstrak semua menu/route yang terdaftar, lalu menulis ulang `.claude/registry/menu-registry.md`.
 
@@ -159,7 +159,7 @@ Format output:
 # Menu Registry
 
 > Cek file ini sebelum modifikasi fitur yang sudah ada. Berisi daftar semua menu beserta path URL, lokasi page, dan service yang digunakan.
-> Digenerate oleh `/init:initmenuregistry` — jalankan ulang setelah menambah route baru.
+> Digenerate oleh `/init:menu-registry` — jalankan ulang setelah menambah route baru.
 
 ---
 
@@ -200,7 +200,7 @@ Aturan format:
   {N} route | {M} grup
 
 Langkah selanjutnya:
-  • /git:prime — load konteks sebelum coding
+  • /git:start — load konteks sebelum coding
   • /feature:thisproject — buat fitur baru
-  • /init:initskillcomponent — generate skill komponen dari source (jika belum)
+  • /init:skill-component — generate skill komponen dari source (jika belum)
 ```

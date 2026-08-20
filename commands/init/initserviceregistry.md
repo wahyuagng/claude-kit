@@ -2,7 +2,7 @@
 description: Scan semua service files di project ini dan generate .claude/registry/service-registry.md dengan metadata lengkap (class, methods, DTO)
 ---
 
-# Command: /init:initserviceregistry
+# Command: /init:service-registry
 
 Kamu akan men-scan semua service files di project ini, mengekstrak metadata (class name, methods, DTO), lalu menulis ulang `.claude/registry/service-registry.md`.
 
@@ -150,7 +150,7 @@ Tulis file dengan format berikut:
 # Service Registry
 
 > Cek file ini sebelum membuat service baru. Jangan duplikat class yang sudah ada.
-> Digenerate oleh `/init:initserviceregistry` — jalankan ulang setelah menambah service baru.
+> Digenerate oleh `/init:service-registry` — jalankan ulang setelah menambah service baru.
 > Dibaca oleh skill `service` dan `thisproject`.
 
 ---
@@ -189,7 +189,7 @@ Setelah file berhasil ditulis, tampilkan:
   {N} service | {M} modul
 
 Langkah selanjutnya:
-  • /git:prime — load konteks sebelum coding
+  • /git:start — load konteks sebelum coding
   • /feature:thisproject — buat fitur baru (registry akan dikonsultasi otomatis)
-  • /init:initmenuregistry — scan dan generate menu registry (jika belum)
+  • /init:menu-registry — scan dan generate menu registry (jika belum)
 ```

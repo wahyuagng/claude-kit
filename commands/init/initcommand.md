@@ -2,7 +2,7 @@
 description: Generate command operasional (.claude/commands/) berdasarkan pola project ini — add-menu, update-menu, validate, review, create-pr, prime, thisproject
 ---
 
-# Command: /init:initcommand
+# Command: /init:command
 
 Kamu akan men-scan project ini dan meng-generate (atau memperbarui) command operasional di `.claude/commands/` agar selaras dengan struktur, pola kode, dan registry project ini.
 
@@ -188,7 +188,7 @@ Command buat PR ke GitHub. Langkah:
 5. Tampilkan preview → minta konfirmasi
 6. Eksekusi `gh pr create`
 
-### `/git:prime` — Load Konteks Sebelum Coding
+### `/git:start` — Load Konteks Sebelum Coding
 
 Command load konteks. File yang selalu dibaca:
 1. `CLAUDE.md`
@@ -242,7 +242,7 @@ Setelah semua command ditulis, cek apakah tabel command di `CLAUDE.md` sudah men
   - prime.md       (dilewati)
 
 Langkah selanjutnya:
-  • /git:prime — load konteks sebelum coding
+  • /git:start — load konteks sebelum coding
   • /feature:add-menu — coba wizard buat fitur baru
   • /quality:validate — validasi implementasi yang ada
 ```

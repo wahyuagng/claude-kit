@@ -2,7 +2,7 @@
 description: Setup konfigurasi API untuk testing endpoint langsung dari terminal — base URL, auth pattern, dan cara hit endpoint dengan payload form
 ---
 
-# Command: /init:initapiconfig
+# Command: /init:api-config
 
 Kamu akan men-scan project ini untuk menemukan konfigurasi API (base URL, auth pattern, env variables), lalu membuat `.claude/common/api-config.md` sebagai referensi saat AI perlu hit endpoint langsung dari terminal.
 
@@ -171,5 +171,5 @@ Sekarang AI bisa hit endpoint langsung dari terminal.
 Contoh penggunaan: "coba hit endpoint list customer dengan token saya"
 
 Langkah selanjutnya:
-  • /init:initrecap — update CLAUDE.md + README.md
+  • /init:recap — update CLAUDE.md + README.md
 ```

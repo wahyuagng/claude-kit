@@ -2,7 +2,7 @@
 description: Generate/update CLAUDE.md (root) dan .claude/README.md berdasarkan kondisi project saat ini — dijalankan di akhir setelah semua init selesai
 ---
 
-# Command: /init:initrecap
+# Command: /init:recap
 
 Kamu akan membaca kondisi project saat ini lalu menulis ulang dua file dokumentasi utama: `CLAUDE.md` di root project dan `.claude/README.md`.
 
@@ -99,12 +99,12 @@ Format output:
 
 | Command | Fungsi |
 |---|---|
-| `/init:initmyai` | Inisialisasi AI context untuk project baru |
-| `/init:initserviceregistry` | Scan service files → generate service-registry.md |
-| `/init:initmenuregistry` | Scan route/nav → generate menu-registry.md |
-| `/init:initskillcomponent` | Scan base component → update skill table/form/fields |
-| `/init:initcommand` | Generate command operasional sesuai pola project |
-| `/init:initrecap` | Generate/update CLAUDE.md + README.md |
+| `/init:my-ai` | Inisialisasi AI context untuk project baru |
+| `/init:service-registry` | Scan service files → generate service-registry.md |
+| `/init:menu-registry` | Scan route/nav → generate menu-registry.md |
+| `/init:skill-component` | Scan base component → update skill table/form/fields |
+| `/init:command` | Generate command operasional sesuai pola project |
+| `/init:recap` | Generate/update CLAUDE.md + README.md |
 
 ### Fitur
 
@@ -125,7 +125,7 @@ Format output:
 
 | Command | Fungsi |
 |---|---|
-| `/git:prime` | Load konteks project sebelum mulai coding |
+| `/git:start` | Load konteks project sebelum mulai coding |
 | `/git:create-pr` | Buat Pull Request |
 
 ---
@@ -197,22 +197,22 @@ AI agent membaca file-file di folder ini sebelum menulis kode. Semakin lengkap f
 
 ### Fitur Baru (CRUD master)
 ```
-/git:prime → /feature:add-menu → /quality:validate → /quality:review → /git:create-pr
+/git:start → /feature:add-menu → /quality:validate → /quality:review → /git:create-pr
 ```
 
 ### Fitur Baru (non-CRUD)
 ```
-/git:prime → /feature:thisproject (jalur D) → /quality:validate → /quality:review → /git:create-pr
+/git:start → /feature:thisproject (jalur D) → /quality:validate → /quality:review → /git:create-pr
 ```
 
 ### Update Fitur yang Sudah Ada
 ```
-/git:prime → /feature:update-menu → /quality:validate → /quality:review → /git:create-pr
+/git:start → /feature:update-menu → /quality:validate → /quality:review → /git:create-pr
 ```
 
 ### Fix Bug / Modifikasi Kecil
 ```
-/git:prime → [coding langsung] → /quality:validate
+/git:start → [coding langsung] → /quality:validate
 ```
 
 ---
@@ -237,16 +237,16 @@ AI agent membaca file-file di folder ini sebelum menulis kode. Semakin lengkap f
 
 | Command | Fungsi |
 |---|---|
-| `/init:initmyai` | Scan project → generate CLAUDE.md, STACK.md, WORKFLOW.md |
-| `/init:initserviceregistry` | Scan service files → generate service-registry.md |
-| `/init:initmenuregistry` | Scan routes/nav → generate menu-registry.md |
-| `/init:initskillcomponent` | Scan base component → update skill files |
-| `/init:initcommand` | Generate command operasional |
-| `/init:initrecap` | Generate/update CLAUDE.md + README.md (jalankan terakhir) |
+| `/init:my-ai` | Scan project → generate CLAUDE.md, STACK.md, WORKFLOW.md |
+| `/init:service-registry` | Scan service files → generate service-registry.md |
+| `/init:menu-registry` | Scan routes/nav → generate menu-registry.md |
+| `/init:skill-component` | Scan base component → update skill files |
+| `/init:command` | Generate command operasional |
+| `/init:recap` | Generate/update CLAUDE.md + README.md (jalankan terakhir) |
 
 Urutan untuk project baru:
 ```
-/init:initmyai → /init:initserviceregistry → /init:initmenuregistry → /init:initskillcomponent → /init:initcommand → /init:initrecap
+/init:my-ai → /init:service-registry → /init:menu-registry → /init:skill-component → /init:command → /init:recap
 ```
 
 ---
@@ -259,7 +259,7 @@ Urutan untuk project baru:
 
 ## Tips
 
-- **Selalu mulai dengan `/git:prime`** — AI perlu konteks sebelum menulis kode yang konsisten.
+- **Selalu mulai dengan `/git:start`** — AI perlu konteks sebelum menulis kode yang konsisten.
 - **Jangan skip `/quality:validate`** — ESLint error lebih mudah diperbaiki sebelum PR.
 - **Update registry setelah setiap fitur** — registry adalah "memory" AI untuk sesi berikutnya.
 - **Konsistensi > kreativitas** — AI mengikuti pola yang sudah ada. Jika ada pattern baru yang lebih baik, update dulu skill yang relevan.
@@ -277,6 +277,6 @@ Urutan untuk project baru:
 Init sequence selesai. Project siap digunakan.
 
 Langkah selanjutnya:
-  • /git:prime — mulai coding
+  • /git:start — mulai coding
   • /feature:add-menu — buat fitur pertama
 ```

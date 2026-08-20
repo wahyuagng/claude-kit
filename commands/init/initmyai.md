@@ -2,7 +2,7 @@
 description: Inisialisasi AI context untuk project React+TypeScript baru — scan struktur, selaraskan CLAUDE.md, STACK.md, dan registry
 ---
 
-# Command: /init:initmyai
+# Command: /init:my-ai
 
 Kamu akan menginisialisasi setup AI untuk project ini. Scan struktur project, kumpulkan info dari user, lalu update semua file context agar selaras dengan project baru.
 
@@ -117,11 +117,11 @@ Ketik YA untuk eksekusi, CANCEL untuk membatalkan, atau koreksi bagian yang sala
 | `/feature:add-menu` | Wizard interaktif buat menu CRUD master baru |
 | `/feature:update-menu` | Wizard interaktif tambah/update fitur di menu yang sudah ada |
 | `/feature:thisproject` | Wizard untuk jalur A–G (service, route, table, form, dll) |
-| `/git:prime` | Load konteks project sebelum mulai coding |
+| `/git:start` | Load konteks project sebelum mulai coding |
 | `/quality:validate` | Validasi hasil implementasi |
 | `/quality:review` | Review menyeluruh sebelum PR |
 | `/git:create-pr` | Buat Pull Request |
-| `/init:initmyai` | Inisialisasi AI context untuk project baru |
+| `/init:my-ai` | Inisialisasi AI context untuk project baru |
 
 ## Wajib Dilakukan Sebelum Mengerjakan Task Apapun
 
@@ -244,5 +244,5 @@ File yang diupdate:
 
 Langkah selanjutnya:
   • /feature:thisproject — mulai buat fitur pertama
-  • /git:prime — load konteks sebelum coding manual
+  • /git:start — load konteks sebelum coding manual
 ```
