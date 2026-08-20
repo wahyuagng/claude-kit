@@ -10,25 +10,50 @@ Kamu akan men-scan konfigurasi routing project ini, mengekstrak semua menu/route
 
 ## ATURAN UTAMA
 
-1. **Scan dulu, tulis belakangan** — baca `paths.ts` dan nav config sebelum menulis apapun.
-2. **Derive dari source, bukan tebak** — path URL harus diambil dari `paths.ts`, bukan dikarang.
-3. **Satu konfirmasi sebelum tulis** — tampilkan ringkasan, minta YA sebelum eksekusi.
-4. **Cancel kapan saja** — jika user mengetik `CANCEL`, hentikan dan tampilkan: `Init dibatalkan. Tidak ada file yang dimodifikasi.`
-5. **Regenerate penuh** — timpa file lama sepenuhnya, tidak merge dengan isi sebelumnya.
+1. **Tanya referensi dulu** — tanya user lokasi file route config dan naming convention sebelum scan.
+2. **Scan dulu, tulis belakangan** — baca `paths.ts` dan nav config sebelum menulis apapun.
+3. **Derive dari source, bukan tebak** — path URL harus diambil dari file paths, bukan dikarang.
+4. **Satu konfirmasi sebelum tulis** — tampilkan ringkasan, minta YA sebelum eksekusi.
+5. **Cancel kapan saja** — jika user mengetik `CANCEL`, hentikan dan tampilkan: `Init dibatalkan. Tidak ada file yang dimodifikasi.`
+6. **Regenerate penuh** — timpa file lama sepenuhnya, tidak merge dengan isi sebelumnya.
+
+---
+
+## LANGKAH 0 — Tanya Referensi Path & Naming Convention
+
+Sebelum scan, tanya user:
+
+```
+Di mana lokasi file route/path constants di project ini?
+(contoh: #src/routes/paths.ts, #src/router/routes.ts, #src/config/routes.ts)
+(atau tekan Enter untuk scan otomatis dari src/)
+(ketik CANCEL untuk membatalkan)
+```
+
+Lalu tanya:
+
+```
+Di mana lokasi file nav/menu config di project ini?
+(contoh: #src/layouts/config-nav-dashboard.tsx, #src/config/navigation.ts)
+(atau tekan Enter untuk scan otomatis dari src/)
+```
+
+Dari jawaban user, derive:
+- `pathsFile` — path ke file konstanta URL (jika tidak diberikan → coba glob otomatis)
+- `navFile` — path ke file nav/menu config (jika tidak diberikan → coba glob otomatis)
+- `routerFile` — path ke file router utama (selalu coba temukan otomatis)
 
 ---
 
 ## LANGKAH 1 — Temukan File Route Config
 
-Cari file-file berikut secara paralel (tidak semua harus ada — cukup yang ditemukan):
+Gunakan referensi dari Langkah 0. Jika user tidak berikan path spesifik, cari secara paralel:
 
-1. `src/routes/paths.ts` atau `src/routes/paths.js` — konstanta URL
-2. `src/layouts/config-nav-dashboard.tsx` atau file serupa dengan nama `config-nav*` — nav items per role
-3. `src/routes/components/Routes.tsx` atau file router utama — untuk validasi route yang terdaftar
+1. Glob `**/{paths,routes,router,navigation}.ts` dari `src/` — konstanta URL
+2. Glob `**/config-nav*.tsx` atau `**/navigation*.ts` dari `src/` — nav items
+3. Glob `**/Routes.tsx` atau `**/Router.tsx` dari `src/` — router utama
 
-Jika `paths.ts` tidak ditemukan:
-- Coba glob `**/{paths,routes,router}.ts` dari `src/`
-- Jika masih tidak ditemukan → tampilkan pesan error dan stop
+Jika tidak ditemukan sama sekali → tampilkan pesan error dan stop.
 
 ---
 

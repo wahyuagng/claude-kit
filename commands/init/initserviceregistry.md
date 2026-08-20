@@ -10,21 +10,49 @@ Kamu akan men-scan semua service files di project ini, mengekstrak metadata (cla
 
 ## ATURAN UTAMA
 
-1. **Scan dulu, tulis belakangan** — jangan tulis apapun sebelum scan selesai dan user konfirmasi.
-2. **Jangan hardcode path** — gunakan glob `**/*.service.ts` dari root project, bukan path spesifik.
-3. **Derive sebanyak mungkin** — class name, methods, dan DTO harus diambil dari source file, bukan ditebak.
-4. **Satu konfirmasi sebelum tulis** — tampilkan ringkasan hasil scan, minta YA sebelum eksekusi.
-5. **Cancel kapan saja** — jika user mengetik `CANCEL`, hentikan dan tampilkan: `Init dibatalkan. Tidak ada file yang dimodifikasi.`
+1. **Tanya referensi dulu** — tanya user lokasi folder dan naming convention sebelum scan.
+2. **Scan dulu, tulis belakangan** — jangan tulis apapun sebelum scan selesai dan user konfirmasi.
+3. **Jangan hardcode path** — gunakan glob berdasarkan input user, bukan asumsi `*.service.ts`.
+4. **Derive sebanyak mungkin** — class name, methods, dan DTO harus diambil dari source file, bukan ditebak.
+5. **Satu konfirmasi sebelum tulis** — tampilkan ringkasan hasil scan, minta YA sebelum eksekusi.
+6. **Cancel kapan saja** — jika user mengetik `CANCEL`, hentikan dan tampilkan: `Init dibatalkan. Tidak ada file yang dimodifikasi.`
+
+---
+
+## LANGKAH 0 — Tanya Referensi Path & Naming Convention
+
+Sebelum scan, tanya user:
+
+```
+Di mana lokasi folder service/endpoint di project ini?
+(contoh: #src/services, #src/api, #src/endpoints)
+(atau tekan Enter untuk scan dari root)
+(ketik CANCEL untuk membatalkan)
+```
+
+Lalu tanya:
+
+```
+Apa suffix/naming convention file service di project ini?
+(contoh: *.service.ts, *.endpoint.ts, *.api.ts, *.repository.ts)
+(atau tekan Enter untuk pakai semua konvensi umum)
+```
+
+Dari jawaban user, derive:
+- `scanPath` — folder yang akan di-scan (default: root project)
+- `filePattern` — glob pattern yang akan dipakai
+  - Jika user berikan suffix → gunakan langsung (misal: `**/*.endpoint.ts`)
+  - Jika user tidak berikan → coba semua: `**/*.service.ts`, `**/*.endpoint.ts`, `**/*.api.ts`, `**/*.repository.ts`
 
 ---
 
 ## LANGKAH 1 — Scan Service Files
 
-Gunakan Glob dengan pattern `**/*.service.ts` dari root project.
+Gunakan Glob dengan pattern dari Langkah 0 di dalam `scanPath`.
 
-Jika 0 file ditemukan:
-- Coba fallback `**/*.service.js`
-- Jika masih 0 → tampilkan: `Tidak ditemukan service files (*.service.ts / *.service.js) di project ini.` lalu stop.
+Jika 0 file ditemukan dari semua pattern:
+- Tampilkan: `Tidak ditemukan service files dengan pattern yang dicoba di {scanPath}.`
+- Tanya: `Coba pattern lain? (contoh: *.service.ts) atau CANCEL`
 
 Juga cek apakah `.claude/registry/service-registry.md` sudah ada — simpan status ini (`registryExists = true/false`) untuk dipakai di ringkasan nanti.
 
