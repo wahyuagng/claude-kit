@@ -180,7 +180,7 @@ Aturan format:
 
 ---
 
-## LANGKAH 7 — Konfirmasi Selesai
+## LANGKAH 6 — Konfirmasi Selesai
 
 Setelah file berhasil ditulis, tampilkan:
 

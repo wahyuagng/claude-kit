@@ -56,8 +56,6 @@ Deskripsi singkat project ini?
 
 ## LANGKAH 3 — Tampilkan Preview & Konfirmasi
 
-Tampilkan ringkasan:
-
 ```
 === PREVIEW: Init Recap ===
 
@@ -76,17 +74,13 @@ File yang akan ditulis:
 Lanjutkan? (YA / CANCEL)
 ```
 
----
-
-## LANGKAH 4 — Proses Konfirmasi
-
 - `CANCEL` → stop
-- `YA` → lanjut ke Langkah 5
+- `YA` → lanjut ke Langkah 4
 - Jawaban lain → tanya ulang
 
 ---
 
-## LANGKAH 5 — Tulis `CLAUDE.md` (root project)
+## LANGKAH 4 — Tulis `CLAUDE.md` (root project)
 
 Format output:
 
@@ -176,7 +170,7 @@ Detail lengkap ada di `.claude/common/STACK.md`.
 
 ---
 
-## LANGKAH 6 — Tulis `.claude/README.md`
+## LANGKAH 5 — Tulis `.claude/README.md`
 
 Format output:
 
@@ -237,16 +231,24 @@ AI agent membaca file-file di folder ini sebelum menulis kode. Semakin lengkap f
 
 | Command | Fungsi |
 |---|---|
+| `/init:initall` | Jalankan semua init berurutan dalam satu sesi (shortcut) |
 | `/init:my-ai` | Scan project → generate CLAUDE.md, STACK.md, WORKFLOW.md |
 | `/init:service-registry` | Scan service files → generate service-registry.md |
 | `/init:menu-registry` | Scan routes/nav → generate menu-registry.md |
 | `/init:skill-component` | Scan base component → update skill files |
+| `/init:api-config` | Setup konfigurasi API untuk testing endpoint dari terminal |
 | `/init:command` | Generate command operasional |
 | `/init:recap` | Generate/update CLAUDE.md + README.md (jalankan terakhir) |
 
 Urutan untuk project baru:
 ```
-/init:my-ai → /init:service-registry → /init:menu-registry → /init:skill-component → /init:command → /init:recap
+/init:initall
+```
+
+Atau jalankan manual berurutan:
+```
+/init:my-ai → /init:service-registry → /init:menu-registry →
+/init:skill-component → /init:api-config → /init:command → /init:recap
 ```
 
 ---
@@ -267,7 +269,7 @@ Urutan untuk project baru:
 
 ---
 
-## LANGKAH 7 — Konfirmasi Selesai
+## LANGKAH 6 — Konfirmasi Selesai
 
 ```
 ✓ Recap selesai:

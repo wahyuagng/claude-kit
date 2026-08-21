@@ -1,5 +1,5 @@
 ---
-description: Generate command operasional (.claude/commands/) berdasarkan pola project ini — add-menu, update-menu, validate, review, create-pr, prime, thisproject
+description: Generate command operasional (.claude/commands/) berdasarkan pola project ini — add-menu, update-menu, validate, review, create-pr, start, thisproject
 ---
 
 # Command: /init:command
@@ -50,7 +50,7 @@ Cek file berikut — apakah sudah ada atau belum:
 .claude/commands/quality/validate.md
 .claude/commands/quality/review.md
 .claude/commands/git/create-pr.md
-.claude/commands/git/prime.md
+.claude/commands/git/start.md
 ```
 
 Untuk setiap file yang **sudah ada**, tandai sebagai `(ada — akan dilewati)`.
@@ -239,7 +239,7 @@ Setelah semua command ditulis, cek apakah tabel command di `CLAUDE.md` sudah men
   ✓ thisproject.md
   - validate.md    (dilewati)
   - create-pr.md   (dilewati)
-  - prime.md       (dilewati)
+  - start.md       (dilewati)
 
 Langkah selanjutnya:
   • /git:start — load konteks sebelum coding

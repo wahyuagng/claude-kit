@@ -193,7 +193,7 @@ Aturan format:
 
 ---
 
-## LANGKAH 9 — Konfirmasi Selesai
+## LANGKAH 8 — Konfirmasi Selesai
 
 ```
 ✓ Menu registry diupdate: .claude/registry/menu-registry.md

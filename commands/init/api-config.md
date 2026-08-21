@@ -32,11 +32,12 @@ Derive otomatis:
 - `authStorageKey` — key di localStorage/sessionStorage yang menyimpan token
 - `defaultHeaders` — header wajib selain Authorization (misal: `X-Client-Key`, `X-Client-Secret`)
 
+Jika `baseUrlKey` berhasil ditemukan dan nilai aktualnya tersedia di `.env` → skip Langkah 2 (tidak perlu tanya user).
+Jika nilai tidak ditemukan → lanjut ke Langkah 2.
+
 ---
 
-## LANGKAH 2 — Tanya Base URL Dev
-
-Tanya user:
+## LANGKAH 2 — Tanya Base URL Dev (hanya jika tidak ditemukan otomatis)
 
 ```
 Base URL API untuk environment development?
